@@ -2,9 +2,12 @@ const fs = require('fs');
 
 const dbConnection = require('./db_connection');
 
+// this has to run async because you want to run this before everything happens 
 const sql = fs.readFileSync(`${__dirname}/db_build.sql`).toString();
 
-dbConnection.query(sql, (err,res)=>{
-    if(err) throw err;
-    console.log("Game of thrones tables created with result: ", res);
+// query takes a string as its first argument 
+
+dbConnection.query(sql,(error,res)=>{
+    if (error) throw error;
+    console.log('game of thrones table created with results', res);
 });
