@@ -26,7 +26,7 @@ ALTER TABLE "results" ADD FOREIGN KEY ("wallet_id") REFERENCES "wallet" ("id");
 
 
 
-INSERT INTO results(stat, result) VALUES 
+INSERT INTO status(mortality, result) VALUES 
 ('dead','Sorry, you were brutally slain by a direwolf'),
 ('dead','A Faceless Man was no friend of yours. Sorry, you’re dead now'),
 ('dead', 'Oops. You encountered a dragon and were burnt to a crisp'),
