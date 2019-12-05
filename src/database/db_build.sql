@@ -1,26 +1,31 @@
 BEGIN;
 
-DROP TABLE IF EXISTS characters, houses, weapons, powers, honour CASCADE;
+DROP TABLE IF EXISTS characters, wallet, results CASCADE;
 
 
 CREATE TABLE characters (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    honour INTEGER NOT NULL
+    house VARCHAR(50) NOT NULL,
+    weapon VARCHAR(100) NOT NULL,
+    honour_points INTEGER DEFAULT 100
 );
 
-CREATE TABLE houses (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    character_id INTEGER REFERENCES characters(id) 
+CREATE TABLE wallet (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    character_id INTEGER,
+    honour_count INTEGER DEFAULT 0
 );
 
-CREATE TABLE weapons (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    character_id INTEGER REFERENCES characters(id) 
+CREATE TABLE results (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    dead_result VARCHAR(250),
+    survive_result VARCHAR(250),
+    wallet_id INTEGER
 );
+
+ALTER TABLE "characters" ADD FOREIGN KEY ("id") REFERENCES "wallet" ("character_id");
+ALTER TABLE "results" ADD FOREIGN KEY ("wallet_id") REFERENCES "wallet" ("id");
 
 INSERT INTO characters(first_name,last_name,honour) VALUES
 ('Jon', 'Snow',100),
