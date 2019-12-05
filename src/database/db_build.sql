@@ -1,26 +1,41 @@
 BEGIN;
 
-DROP TABLE IF EXISTS characters, results, wallet, CASCADE;
-
-
 CREATE TABLE characters (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    house VARCHAR(100) NOT NULL,
+    house VARCHAR(50) NOT NULL,
     weapon VARCHAR(100) NOT NULL,
-    honour INTEGER NOT NULL
+    honour INTEGER DEFAULT 100
+);
+
+CREATE TABLE wallet (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    character_id INTEGER,
+    honour_count INTEGER DEFAULT 0
 );
 
 CREATE TABLE results (
-id SERIAL PRIMARY KEY,
-dead_result VARCHAR(250) NOT NULL,
-survive_result VARCHAR(250) NOT NULL,
-wallet_id INTEGER
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    dead_result VARCHAR(250),
+    survive_result VARCHAR(250),
+    wallet_id INTEGER
+);
+
+ALTER TABLE "characters" ADD FOREIGN KEY ("id") REFERENCES "wallet" ("character_id");
+ALTER TABLE "results" ADD FOREIGN KEY ("wallet_id") REFERENCES "wallet" ("id");
 
 
-)
 
-
+INSERT INTO results(stat, result) VALUES 
+('dead','Sorry, you were brutally slain by a direwolf'),
+('dead','A Faceless Man was no friend of yours. Sorry, you’re dead now'),
+('dead', 'Oops. You encountered a dragon and were burnt to a crisp'),
+('dead','The Lannisters send their regards')
+('dead','The night is dark and full of terrors.Lights out for you'),
+('dead', 'If you think this has a happy ending, you have not been paying attention. You are dead'),
+('alive' , 'There is only one thing we say to death: Not today.')
+('alive', 'Valar Morghulis'),
+('alive', 'You have survived winter');
 
 
 
@@ -47,6 +62,10 @@ INSERT INTO characters(name,house,weapon,honour) VALUES
 ('Red Woman','No Allegiance', 'magic', 133),
 ('Missandei of Naath','No Allegiance','nothing',1 ),
 ('Olena Martell' , 'House Martell','poison', 2);
+
+
+
+
 
 
 
