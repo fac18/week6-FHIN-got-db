@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/fac18/week6-FHIN-got-db#readme",
   "dependencies": {
+    "env2": "^2.2.2",
     "pg": "^7.14.0"
   },
   "devDependencies": {
