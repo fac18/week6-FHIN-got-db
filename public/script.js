@@ -8,12 +8,16 @@ const showTable = () => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             buildTable = JSON.parse(xhr.responseText);
-            console.log(buildTable)
+            
+            let rows = [];
 
-            tablePara.textContent = buildTable[0].;
-        //     let textTable = document.createTextNode(`The weather in ${searchTerm} is ${originLocation.weather}`); // Create a text node
-        // paraWeatherCondition.appendChild(textWeatherCondition);
-        // weatherSection.appendChild(paraWeatherCondition);
+            for (let i = 0; i < 20; i++) {
+                rows.push(Object.values(buildTable[i]));
+            }
+
+            console.log(rows);
+
+            tablePara.textContent = rows  ;
 
         }
     };
