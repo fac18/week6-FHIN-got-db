@@ -8,8 +8,9 @@ const router = (request, response) => {
 
     } else if (endpoint.startsWith("/public")) {
         handlers.handlePublic(request, response, endpoint);
-    } else if (endpoint.includes("character")) { handlers.handleCharacter (request, response, endpoint);
-    } else if (endpoint.startsWith("/result")) { handlers.handleResult (request, response, endpoint);
+
+    } else if (endpoint.startsWith("/result")) { handlers.handleSubmit (request, response, endpoint);
+
     } else {
         response.writeHead(404, {
             "Content-Type": "text/html"});
