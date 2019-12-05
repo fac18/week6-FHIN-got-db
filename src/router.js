@@ -10,6 +10,7 @@ const router = (request, response) => {
         handlers.handlePublic(request, response, endpoint);
 
     } else if (endpoint.startsWith("/result")) { handlers.handleSubmit (request, response, endpoint);
+    } else if (endpoint.startsWith("/table")) { handlers.handleTable (request, response);
 
     } else {
         response.writeHead(404, {
