@@ -22,7 +22,9 @@
     "url": "https://github.com/fac18/week6-FHIN-got-db/issues"
   },
   "homepage": "https://github.com/fac18/week6-FHIN-got-db#readme",
-  "dependencies": {},
+  "dependencies": {
+    "pg": "^7.14.0"
+  },
   "devDependencies": {
     "nodemon": "^2.0.1",
     "nyc": "^14.1.1",
