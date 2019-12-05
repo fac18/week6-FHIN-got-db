@@ -37,3 +37,8 @@ Testing
 - Decided on Game of Thrones database
 - Mobbed software architecture, with config.env file, and installed our node packages as dependencies
 - Mobbed the schema using 
+
+## Day 2 
+
+- Created sql and js files in our database
+- Modified sql info to better visualise clan builder
