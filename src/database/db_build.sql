@@ -17,10 +17,10 @@ CREATE TABLE wallet (
     honour_count INTEGER DEFAULT 0
 );
 
-CREATE TABLE results (
+CREATE TABLE status (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    dead_result VARCHAR(250),
-    survive_result VARCHAR(250),
+    mortality VARCHAR(250),
+    result VARCHAR(250),
     wallet_id INTEGER
 );
 
