@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "tape tests/*.test.js | tap-spec",
+    "test": "tape test/*.test.js | tap-spec",
     "start": "nodemon src/server.js",
     "coverage": "nyc tape tests/*.test.js | tap-spec"
   },
