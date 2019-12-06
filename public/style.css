@@ -1,6 +1,6 @@
 :root {
     /* colour variables */ 
-    --fire: rgb(167, 67, 0);
+    --fire: rgb(201, 88, 13);
     --ice: #c0def7;
     --direwolf: #64635b;
     --winterfell: rgb(21, 21, 22);
@@ -13,8 +13,7 @@
     --space-xl: 2.618rem;
     --space-xxl: 4.236rem;
     /* Fonts  */
-    --strait: 'Strait', sans-serif;
-    --wsans: 'Work Sans', sans-serif;
+    --cinzel: 'Cinzel', serif;
 }
 * {
     box-sizing: border-box;
@@ -28,20 +27,28 @@ body {
     flex-direction: column;
     background-image: url("assets/north-wall.png");
     line-height: var(--space-m);
-    font-family: var(--strait)
+    font-family: var(--cinzel)
 }
+
 section {
     display: flex;
     justify-content: center;
 }
-h1, p {
+
+h2, section {
+    background: rgba(255, 255, 255, 0.39);
+
+}
+
+h1, p, h2 {
     text-align: center;
     padding: var(--space-m);
+    line-height: var(--space-l);
 }
 h1 {
-    font-size: var(--space-l)*3;
+    font-size: var(--space-xl);
     line-height: var(--space-xl);
-    color: var(--glass);
+    color: var(--fire);
 }
 p {
     font-size: var(--space-l);
@@ -69,7 +76,7 @@ input::placeholder {
     margin-right: var(--space-m);
     background-color: var(--ice);
     color: var(--mystic);
-    border: 2px solid var(--glass);
+    border: 2px solid var(--winterfell);
     outline: none;
 }
 button {
