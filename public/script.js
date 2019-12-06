@@ -1,44 +1,56 @@
-console.log('running')
-
-const tablePara = document.querySelector("section.game-main > p")
-
 const showTable = () => {
     let xhr = new XMLHttpRequest();
     const url = "/table";
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            buildTable = JSON.parse(xhr.responseText);
-            
-            let rows = [];
-
-            for (let i = 0; i < 20; i++) {
-                rows.push(Object.values(buildTable[i]));
-            }
-
-            console.log(rows);
-
-            tablePara.textContent = rows  ;
-
+        let tableData = JSON.parse(xhr.responseText);
+         populateInventoryTable(tableData)
+          console.log(tableData);
         }
-    };
+    }
     xhr.open("GET", url, true);
     xhr.send();
+};
+
+
+const populateInventoryTable = tableData => {
+    const tableBody = document.querySelector(".characters_table tbody");
+    
+    tableData.forEach((character,index)=>{
+        let newCharacterRow = document.createElement('tr');
+
+        // Add select box
+        let newCheckbox = document.createElement('td');
+        let checkbox = cb = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = checkbox;
+        checkbox.value = character.id;
+        newCheckbox.appendChild(checkbox)
+        newCharacterRow.appendChild(newCheckbox)
+
+
+        // Add name element
+        let newCharacterName = document.createElement('td');
+        newCharacterName.innerText = character.name;
+        newCharacterRow.appendChild(newCharacterName)
+
+        // Add Weapon element
+        let newWeapon = document.createElement('td');
+        newWeapon.innerText = character.weapon;
+        newCharacterRow.appendChild(newWeapon);
+
+
+
+        // Add house element
+        let newHouse = document.createElement('td');
+        newHouse.innerHTML = character.house;
+        newCharacterRow.appendChild(newHouse);
+        
+        
+        
+        // Add row to table
+        tableBody.appendChild(newCharacterRow);
+    })
 }
 
-window.onload = showTable()
-
-
-
-
-// const getInventoryData = () => {
-//     const xhr = new XMLHttpRequest();
-//     const url = "/getinventory";
-//     xhr.onreadystatechange = () => {
-//       if (xhr.readyState === 4 && xhr.status === 200) {
-//         const inventoryArray = JSON.parse(xhr.responseText);
-//         populateInventoryTable(inventoryArray);
-//       }
-//     };
-//     xhr.open("GET", url);
-//     xhr.send();
-//   };
+window.onload = showTable();
