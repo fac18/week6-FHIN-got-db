@@ -1,0 +1,133 @@
+:root {
+    /* colour variables */ 
+    --fire: rgb(167, 67, 0);
+    --ice: #c0def7;
+    --direwolf: #64635b;
+    --winterfell: rgb(21, 21, 22);
+    --whiteout: white;
+    /* spacing variables: golden ratio */
+    --space-xs: 0.382rem;
+    --space-s: 0.618rem;
+    --space-m: 1rem;
+    --space-l: 1.618rem;
+    --space-xl: 2.618rem;
+    --space-xxl: 4.236rem;
+    /* Fonts  */
+    --strait: 'Strait', sans-serif;
+    --wsans: 'Work Sans', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: var(--space-l);
+    display: flex;
+    flex-direction: column;
+    background-image: url("assets/north-wall.png");
+    line-height: var(--space-m);
+    font-family: var(--strait)
+}
+section {
+    display: flex;
+    justify-content: center;
+}
+h1, p {
+    text-align: center;
+    padding: var(--space-m);
+}
+h1 {
+    font-size: var(--space-l)*3;
+    line-height: var(--space-xl);
+    color: var(--glass);
+}
+p {
+    font-size: var(--space-l);
+    font-family: var(--wsans);
+    line-height: var(--space-l);
+    padding-bottom: var(--space-l);
+    color: var(--mystic);
+}
+form {
+    line-height: var(--space-l);
+    font-family: var(--wsans);
+    font-size: var(--space-m);
+    display: flex;
+    flex-flow: row nowrap;
+}
+input::placeholder {
+    color: var(--glass);
+}
+
+.username {
+    padding-left: var(--space-s);
+    width: 70vw;
+    height: var(--space-xl);
+    border-radius: 16px;
+    margin-right: var(--space-m);
+    background-color: var(--ice);
+    color: var(--mystic);
+    border: 2px solid var(--glass);
+    outline: none;
+}
+button {
+    font-size: var(--space-l);
+    border-radius: 16px;
+    height: var(--space-xl);
+    color: var(--glass);
+    border: 2px solid var(--glass);
+    background-color: var(--blueberry);
+    cursor: pointer;
+    outline: none;
+}
+button:hover {
+    color: var(--mystic);
+    border: 2px solid var(--mystic);
+}
+
+
+.svg {
+    padding: var(--space-xl);
+    display: flex;
+}
+
+
+
+
+/* media queries */
+@media (min-width: 768px) {
+
+    body {
+        justify-content: center;
+        background-image: url("assets/north-wall.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    h1 {
+        padding: var(--space-l);
+        font-size: var(--space-xxl);
+    }
+
+    p {
+        font-size: var(--space-l);
+
+    }
+
+    form {
+        padding-top: var(--space-xl);
+    }
+
+    .input {
+        width: 20vw;
+    }
+
+    
+
+}
+
+   
+
+
