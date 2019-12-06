@@ -29,15 +29,15 @@ CREATE TABLE status (
 
 
 INSERT INTO status(mortality, result) VALUES 
+('dead','The night is dark and full of terrors.Lights out for you'),
 ('dead','Sorry, you were brutally slain by a direwolf'),
 ('dead','A Faceless Man was no friend of yours. Sorry, you’re dead now'),
 ('dead', 'Oops. You encountered a dragon and were burnt to a crisp'),
 ('dead','The Lannisters send their regards'),
-('dead','The night is dark and full of terrors.Lights out for you'),
 ('dead', 'If you think this has a happy ending, you have not been paying attention. You are dead'),
-('alive' , 'There is only one thing we say to death: Not today.'),
 ('alive', 'Valar Morghulis'),
-('alive', 'You have survived winter');
+('alive', 'You have survived winter'),
+('alive' , 'There is only one thing we say to death: Not today.');
 
 
 
