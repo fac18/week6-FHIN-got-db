@@ -36,9 +36,24 @@ Testing
 - Discussed project ideas
 - Decided on Game of Thrones database
 - Mobbed software architecture, with config.env file, and installed our node packages as dependencies
-- Mobbed the schema using 
+- Mobbed the schema using diagramdb. Started with MANY tables to try and understand the different relationships (one-to-one, on-to-many, many-to-many) But this way unnecessarily complicated. 
+
+So we ended up with this...
+
+## Schema
+![](https://i.imgur.com/x5UV9Z6.png)
+
 
 ## Day 2 
 
 - Created sql and js files in our database
 - Modified sql info to better visualise clan builder
+
+## User Journey
+
+1. On homepage user is presented with table of Game of Thrones characters listing their name, house and weapon.
+2. User is given instructions - select 3 characters to build their clan and survive Winter
+3. User selects three characters using checkboxes/ radio buttons next to each row
+4. User clicks submit button to lock-in their selection
+5. User is returned with a response saying whether they're alive or dead. eg “A Lannister repaid their debt by taking your life”
+6. Stretch - user inputs their name, if they survive a new table is shown of their team members
