@@ -16,7 +16,7 @@ const options = {
     port: params.port,
     database: params.pathname.split('/')[1],
     max: process.env.DB_MAX_CONNECTIONS || 2,
-    username,
+    user: username,
     password,
     ssl: params.hostname !== 'localhost',
 }
