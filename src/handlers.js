@@ -100,7 +100,6 @@ module.exports = {
     handleHome,
     handlePublic,
     handleSelect,
-    handleSubmit,
     handleTable,
     handleA,
     handleD

@@ -9,9 +9,6 @@ const resultAlive = (cb) => {
     });
 };
 
-const dbConnection = require("../database/db_connection");
-
-
 const resultDead = (cb) => {
     dbConnection.query('SELECT TOP 1 * FROM status', (err,res)=>{
         if(err) return cb(err);
