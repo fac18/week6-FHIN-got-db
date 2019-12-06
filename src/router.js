@@ -11,7 +11,8 @@ const router = (request, response) => {
 
     } else if (endpoint.startsWith("/result")) { handlers.handleSubmit (request, response, endpoint);
     } else if (endpoint.startsWith("/table")) { handlers.handleTable (request, response);
-
+    } else if (endpoint.startsWith("/resultsA")) {handlers.handleA (request, response)
+    } else if (endpoint.startsWith("/resultsD")) {handlers.handleD (request, response) 
     } else {
         response.writeHead(404, {
             "Content-Type": "text/html"});

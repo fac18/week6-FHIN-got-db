@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const getData = require('./queries/getData.js');
-const postData = require('./queries/postData.js');
+const resultsQuery = require('./queries/resultsQuery.js');
 /*const env = require('env2').config();*/
 
 const handleHome = (request, response) => {
@@ -41,7 +41,7 @@ const handlePublic = (request, response) => {
     const filePath = path.join(__dirname, '..', endpoint);
     fs.readFile(filePath, (error, file) => {
         if (error) {
-            reesponse.writeHead(500, {'Content-type': 'text/html'});
+            response.writeHead(500, {'Content-type': 'text/html'});
             response.end('<h1>Sorry, we had a problem at our end </h1>');
         }
         else {
@@ -73,14 +73,35 @@ const handleSelect = (request, response) => {
 //database queries
 }
 
-const handleSubmit = (request, response) => {
-//database querie
+const handleA = (request, response) => {
+resultsQuery.resultAlive((err,res) => {
+    if (err) console.log(err);
+    else {
+        const data = JSON.stringify(res);
+        response.writeHead(200, {"Content-Type": "application/json"});
+        response.end(data);
+    }
+})
 }
+
+const handleD = (request, response) => {
+resultsQuery.resultDead((err,res) => {
+        if (err) console.log(err);
+        else {
+            const data = JSON.stringify(res);
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.end(data);
+        }
+    })
+    }
+    
 
 module.exports = {
     handleHome,
     handlePublic,
     handleSelect,
     handleSubmit,
-    handleTable
+    handleTable,
+    handleA,
+    handleD
 }
