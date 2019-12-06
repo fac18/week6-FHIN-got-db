@@ -34,9 +34,18 @@ Testing
 ## Day 1
 
 - Discussed project ideas
+
+![Brainstorming](https://i.imgur.com/SXUWI5W.jpg)
+
 - Decided on Game of Thrones database
+
+![Wireframing](https://i.imgur.com/3BSuwHu.jpg)
+
 - Mobbed software architecture, with config.env file, and installed our node packages as dependencies
-- Mobbed the schema using diagramdb. Started with MANY tables to try and understand the different relationships (one-to-one, on-to-many, many-to-many) But this way unnecessarily complicated. 
+
+![Architecture](https://i.imgur.com/s4mzF2F.jpg)
+
+- Mobbed the schema using diagramdb. Started with MANY tabhttps://i.imgur.com/s4mzF2F.jpgles to try and understand the different relationships (one-to-one, on-to-many, many-to-many) But this way unnecessarily complicated. 
 
 So we ended up with this...
 
