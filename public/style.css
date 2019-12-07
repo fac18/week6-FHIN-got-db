@@ -1,9 +1,9 @@
 :root {
     /* colour variables */ 
-    --fire: rgb(201, 88, 13);
+    --fire: rgb(226, 138, 6);
     --ice: #c0def7;
     --direwolf: #64635b;
-    --winterfell: rgb(21, 21, 22);
+    --winterfell: #2e2d42;
     --whiteout: white;
     /* spacing variables: golden ratio */
     --space-xs: 0.382rem;
@@ -20,24 +20,29 @@
 }
 html {
     scroll-behavior: smooth;
+    width: 100vw;
+    background: url("assets/north-wall.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
 body {
     margin: var(--space-l);
     display: flex;
     flex-direction: column;
-    background-image: url("assets/north-wall.png");
     line-height: var(--space-m);
-    font-family: var(--cinzel)
+    font-family: var(--cinzel);
+    text-align: center;
+    /* background-image: url("assets/north-wall.png");
+    background-size: cover; */
+    /* background-image: url("assets/game-of-thrones-dragon-eyes-season-8-uhdpaper.com-4K-64.png"); */
 }
 
 section {
     display: flex;
     justify-content: center;
-}
-
-h2, section {
-    background: rgba(255, 255, 255, 0.39);
-
 }
 
 h1, p, h2 {
@@ -46,17 +51,16 @@ h1, p, h2 {
     line-height: var(--space-l);
 }
 h1 {
+    display: block;
     font-size: var(--space-xl);
     line-height: var(--space-xl);
     color: var(--fire);
 }
-p {
-    font-size: var(--space-l);
-    font-family: var(--wsans);
-    line-height: var(--space-l);
-    padding-bottom: var(--space-l);
-    color: var(--mystic);
+
+.got-title {
+    display: none;
 }
+
 form {
     line-height: var(--space-l);
     font-family: var(--wsans);
@@ -100,22 +104,72 @@ button:hover {
     display: flex;
 }
 
+/* table */
 
 
+table {
+    background: rgba(214, 207, 207, 0.596);
+    color: var(--whiteout);
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--direwolf);
+    text-align: center;
+  }
+
+th, thead {
+    background-color: var(--winterfell);
+    color: var(--whiteout);
+    font-size: var(--space-l);
+    text-align: center;
+}
+
+tr {
+    color: black;
+}
+
+tr:hover {
+    background-color: var(--fire);
+    font-weight: bold;
+}
+
+tr:checked {
+    background-color: var(--fire);
+    font-weight: bold;
+}
+
+  
 
 /* media queries */
 @media (min-width: 768px) {
 
     body {
         justify-content: center;
-        background-image: url("assets/north-wall.png");
-        background-repeat: no-repeat;
-        background-size: 100%;
+        /* background-image: url("assets/north-wall.png"); */
+        /* background-repeat: no-repeat; */
+        /* background-size: 100%; */
     }
 
     h1 {
         padding: var(--space-l);
         font-size: var(--space-xxl);
+        display:none;
+    }
+
+    h2 {
+        margin: var(--space-l);
+        background-color: #c0def77a;
+        display: inline-block;
+        
+    }
+
+    .got-title {
+        display: block;
     }
 
     p {
