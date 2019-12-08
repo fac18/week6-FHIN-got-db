@@ -68,5 +68,5 @@ So we ended up with this...
 
 ## Stop Go Continue
 
-![SGC part 1](https://i.imgur.com/rFPtNgB.jpg)
-![SGC part 2](https://i.imgur.com/cmeVYTJ.jpg)
+![SGC part 1](https://i.imgur.com/cmeVYTJ.jpg)
+![SGC part 2](https://i.imgur.com/rFPtNgB.jpg)
