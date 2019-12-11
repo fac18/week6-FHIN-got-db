@@ -19,61 +19,39 @@
 
     <section class="user-info">
         <form>
+            <label for="username">Username</label>
             <input
                 autocomplete="off"
-                name="q"
-                class="username"
+                id="username"
+                name="username"
+                class="input-field"
                 aria-label="Enter your username here"
                 placeholder="A girl has no name... but what is yours?"
                 type="text"
                 required/>
+            <label for ="password">Password</label>
+            <input
+                autocomplete="off"
+                name="password"
+                id="password"
+                class="input-field"
+                aria-label="Enter your password here"
+                placeholder="A girl has no name... but what is yours?"
+                type="password"
+                required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
 
         <button
-            aria-label="Submit button"
-            class="btn-username">
+            type="submit"
+            aria-label="login button"
+            class="login-button">Play the Game of Thrones
         </button>
         </form>
 
 
     </section>
 
-    <section class = "game-main">
-        <p>Instructions here</p>
-        <div class="got-table">Use DOM append child to add content here</div>
-
-        <form></form>
-        <button>
-            
-        </button>
-
-        </form>></form>
-    </section>
-
-    <section class = "game-result">
-        <table class="characters_table">
-            <thead>
-            <tr>
-              <th class="select">select</th>
-              <th class="name">name</th>
-              <th class="weapon">weapon</th>
-              <th class="house">house</th>
-            </tr>
-           </thead>
-           <tbody>
-                <!-- <tr>
-                    <td class="checkbox"><input type="checkbox" name="cehckbox" value="id"></td>
-                    <td class="row-name">NAME_HERE</td>
-                    <td class="row-weapon">WEAPON</td>
-                    <td class="row-house">HOUSE</td>
-                </tr> -->
-           </tbody>
-          </table>
-    </section>
-
-    <footer>
-        
-    </footer>
-    <script src="./public/script.js"></script>
+    <script src="./public/landingscript.js"></script>
     
 </body>
 </html>
