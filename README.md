@@ -52,7 +52,6 @@ So we ended up with this...
 ## Schema
 ![](https://i.imgur.com/x5UV9Z6.png)
 
-
 ## Day 2 
 
 - Created sql and js files in our database
@@ -66,3 +65,8 @@ So we ended up with this...
 4. User clicks submit button to lock-in their selection
 5. User is returned with a response saying whether they're alive or dead. eg “A Lannister repaid their debt by taking your life”
 6. Stretch - user inputs their name, if they survive a new table is shown of their team members
+
+## Stop Go Continue
+
+![SGC part 1](https://i.imgur.com/cmeVYTJ.jpg)
+![SGC part 2](https://i.imgur.com/rFPtNgB.jpg)
