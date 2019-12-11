@@ -21,7 +21,7 @@
 html {
     scroll-behavior: smooth;
     width: 100vw;
-    background: url("assets/north-wall.png") no-repeat center center fixed; 
+    background: url("assets/north-wall.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -43,6 +43,11 @@ body {
 section {
     display: flex;
     justify-content: center;
+}
+
+.game-result {
+    display: flex;
+    flex-direction: column;
 }
 
 h1, p, h2 {
@@ -92,6 +97,8 @@ button {
     background-color: var(--blueberry);
     cursor: pointer;
     outline: none;
+    display: flex;
+    flex-flow: column;
 }
 button:hover {
     color: var(--mystic);
@@ -147,6 +154,10 @@ tr:checked {
 
 /* media queries */
 @media (min-width: 768px) {
+
+    html {
+        width: 100vw;
+    }
 
     body {
         justify-content: center;

@@ -11,7 +11,7 @@ const resultAlive = (cb) => {
 };
 
 const resultDead = (cb) => {
-    dbConnection.query('SELECT TOP 1 * FROM status', (err,res)=>{
+    dbConnection.query('SELECT TOP 1 FROM status', (err,res)=>{
         if(err) return cb(err);
         console.log('get data call = res.rows: ' + res.rows);
         cb(null, res.rows);
