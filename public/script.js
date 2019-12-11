@@ -28,7 +28,6 @@ const populateInventoryTable = tableData => {
         newCheckbox.appendChild(checkbox)
         newCharacterRow.appendChild(newCheckbox)
 
-
         // Add name element
         let newCharacterName = document.createElement('td');
         newCharacterName.innerText = character.name;
@@ -39,18 +38,32 @@ const populateInventoryTable = tableData => {
         newWeapon.innerText = character.weapon;
         newCharacterRow.appendChild(newWeapon);
 
-
-
         // Add house element
         let newHouse = document.createElement('td');
         newHouse.innerHTML = character.house;
         newCharacterRow.appendChild(newHouse);
         
-        
-        
         // Add row to table
         tableBody.appendChild(newCharacterRow);
     })
 }
+
+
+//submit button
+let submitSelectionButton = document.querySelector("#submit-char")
+const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+submitSelectionButton.addEventListener("click", function() {
+
+    if("number checked " + checkedBoxes.length !==3) {
+        alert("Please select 3 people to join your clan")
+    } else {
+        alert(checkedBoxes.each(function() {
+            alert(checkedBoxes.id);
+        }));
+    };
+});
+
+
+
 
 window.onload = showTable();
