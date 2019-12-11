@@ -93,7 +93,7 @@ resultsQuery.resultDead((err,res) => {
             response.end(data);
         }
     })
-    }
+}
     
 
 module.exports = {

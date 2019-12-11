@@ -37,7 +37,7 @@ INSERT INTO status(mortality, result) VALUES
 ('dead', 'If you think this has a happy ending, you have not been paying attention. You are dead'),
 ('alive', 'Valar Morghulis'),
 ('alive', 'You have survived winter'),
-('alive' , 'There is only one thing we say to death: Not today.');
+('alive', 'There is only one thing we say to death: Not today.');
 
 
 
