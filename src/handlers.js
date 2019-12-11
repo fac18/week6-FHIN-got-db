@@ -5,7 +5,7 @@ const resultsQuery = require('./queries/resultsQuery.js');
 /*const env = require('env2').config();*/
 
 const handleHome = (request, response) => {
-    const filepath = path.join(__dirname, '..', 'public', 'index.html');
+    const filepath = path.join(__dirname, '..', 'public', 'landing.html');
     // getData((err, res) => {
     //     console.log(res)
     // });
@@ -25,6 +25,34 @@ const handleHome = (request, response) => {
         }
     });
 };
+
+const handleLogin = (request, response, endpoint) => {
+    const filePath = path.join(__dirname, '..', 'public', 'index.html');
+    fs.readFile(filePath, (err, file) => {
+        if (err) {
+            res.writeHead(500, {'content-type': 'text/html'});
+            res.end('<h1>We have an internal server error on our side!</h1>');
+        }
+        else {
+            res.writeHead(200, {'content-type': 'text/html'});
+            res.end(file);
+        }
+    });
+}
+
+const handleLogout = (request, response, endpoint) => {
+    const filepath = path.join(__dirname, '..', 'public', 'landing.html');
+    fs.readFile(filePath, (err, file) => {
+        if (err) {
+            res.writeHead(500, {'content-type': 'text/html'});
+            res.end('<h1>We have an internal sevrer error on our side!</h1>');
+        }
+        else {
+            res.writeHead(200, {'content-type': 'text/html'});
+            res.end(file);
+        }
+    });
+}
 
 const handlePublic = (request, response) => {
     const endpoint = request.url;
@@ -102,5 +130,7 @@ module.exports = {
     handleSelect,
     handleTable,
     handleA,
-    handleD
+    handleD,
+    handleLogin,
+    handleLogout
 }
