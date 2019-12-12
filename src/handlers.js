@@ -30,12 +30,12 @@ const handleLogin = (request, response, endpoint) => {
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
     fs.readFile(filePath, (err, file) => {
         if (err) {
-            res.writeHead(500, {'content-type': 'text/html'});
-            res.end('<h1>We have an internal server error on our side!</h1>');
+            response.writeHead(500, {'content-type': 'text/html'});
+            response.end('<h1>We have an internal server error on our side!</h1>');
         }
         else {
-            res.writeHead(200, {'content-type': 'text/html'});
-            res.end(file);
+            response.writeHead(200, {'content-type': 'text/html'});
+            response.end(file);
         }
     });
 }
@@ -48,8 +48,8 @@ const handleLogout = (request, response, endpoint) => {
             res.end('<h1>We have an internal sevrer error on our side!</h1>');
         }
         else {
-            res.writeHead(200, {'content-type': 'text/html'});
-            res.end(file);
+            response.writeHead(200, {'content-type': 'text/html'});
+            response.end(file);
         }
     });
 }
