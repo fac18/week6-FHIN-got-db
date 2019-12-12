@@ -73,6 +73,7 @@ const handleLogin = (request, response, endpoint) => {
     });
 
 }
+
 const handleGame = (request, response, endpoint) => {
     // console.log(request.body);
     if(request.headers.cookie) {
@@ -106,18 +107,15 @@ else {
 
 
    const handleLogout = (request, response, endpoint) => {
-    const filepath = path.join(__dirname, '..', 'public', 'landing.html');
-    fs.readFile(filePath, (err, file) => {
-        if (err) {
-            response.writeHead(500, {'content-type': 'text/html'});
-            response.end('<h1>We have an internal sevrer error on our side!</h1>');
-        }
-        else {
-            response.writeHead(200, {'content-type': 'text/html'});
-            response.end(file);
-        }
-    });
-}
+       console.log('This is cookies', request.headers.cookie);
+       let userName = request.headers.cookie.split('=')[0]
+            response.writeHead(302, {'content-type': 'text/html',
+            'Location': '/',
+            'Set-Cookie': `${userName}=0; Max-Age=0`});
+            response.end();
+   }
+        
+        
 
 const handlePublic = (request, response) => {
     const endpoint = request.url;

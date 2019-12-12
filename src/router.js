@@ -12,7 +12,7 @@ const router = (request, response) => {
     }
     else if (endpoint.startsWith("/game")) {handlers.handleGame(request, response, endpoint);
     }
-    //don't need logout endpoint as redirect to "/"
+       //don't need logout endpoint as redirect to "/"
     else if (endpoint.startsWith("/logout")) {handlers.handleLogout(request, response, endpoint);
     }
     else if (endpoint.startsWith("/result")) { handlers.handleSubmit (request, response, endpoint);

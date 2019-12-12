@@ -63,6 +63,10 @@ submitSelectionButton.addEventListener("click", function() {
     }
 );
 
+//let logoutButton = document.querySelector('.logout-button');
+
+//logoutButton.addEventListener('click', (e) => {console.log(e.target)});
+
 //display username on game page
 const displayName = document.querySelector('.username > p');
 let gamer = decodeURI(document.cookie).split("=")[0];
