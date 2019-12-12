@@ -18,7 +18,7 @@ const loginRequest = () => {
         }
     }
     xhr.open("POST", url, true);
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 };
 
 

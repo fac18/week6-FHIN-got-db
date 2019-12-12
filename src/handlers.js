@@ -2,8 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const getData = require('./queries/getData.js');
 const resultsQuery = require('./queries/resultsQuery.js');
+const {dataStreamer} = require('./auth')
+const querystring = require('querystring')
 //const { readFIle } = require('fs');
-const cookie = require('cookie');
+// const cookie = require('cookie');
 const jwt = require ('jsonwebtoken');
 
 const handleHome = (request, response) => {
@@ -26,34 +28,46 @@ const handleHome = (request, response) => {
 };
 
 const handleGame = (request, response, endpoint) => {
+    // console.log(request.body);
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
-    fs.readFile(filePath, (err, file) => {
-        if (err) {
-            response.writeHead(500, {'content-type': 'text/html'});
-            response.end('<h1>We have an internal server error on our side!</h1>');
-        }
-        else {
-            response.writeHead(200, {'content-type': 'text/html'});
-            response.end(file);
-        }
-    });
-
-    const payload = {
-        userName: 'buya786',
-        password: 'arsenal123'
-    };
+    dataStreamer(request, data => {
+        console.log({data});
+        parsedData=querystring.parse(data);
+        // console.log({parsedData});
+        fs.readFile(filePath, (err, file) => {
+            if (err) {
+                response.writeHead(500, {'content-type': 'text/html'});
+                response.end('<h1>We have an internal server error on our side!</h1>');
+            }
+            else {
+                response.writeHead(302, 
+                    {'content-type': 'text/html',
+                    'Location': '/game'}
+                    );
+                response.end(file);
+                // console.log(file);
+            }
+    })
     
-    const secret = 'ssshhhh'
     
-    let tokenRes = '';
-    
-    jwt.sign(payload, secret, (err, result) => {
-        if (err) {console.log(err);}
-        else {tokenRes = result;
-        };
     });
 
 }
+
+    // const payload = {
+    //     userName: 'buya786',
+    //     password: 'arsenal123'
+    // };
+    
+    // const secret = 'ssshhhh'
+    
+    // let tokenRes = '';
+    
+    // jwt.sign(payload, secret, (err, result) => {
+    //     if (err) {console.log(err);}
+    //     else {tokenRes = result;
+    //     };
+    // });
 
 const handleLogout = (request, response, endpoint) => {
     const filepath = path.join(__dirname, '..', 'public', 'landing.html');
