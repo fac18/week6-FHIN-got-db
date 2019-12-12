@@ -27,13 +27,13 @@ const handleHome = (request, response) => {
     });
 };
 
-const handleGame = (request, response, endpoint) => {
+const handleLogin = (request, response, endpoint) => {
     // console.log(request.body);
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
     dataStreamer(request, data => {
-        console.log({data});
         parsedData=querystring.parse(data);
         // console.log({parsedData});
+        console.log(parsedData);
         fs.readFile(filePath, (err, file) => {
             if (err) {
                 response.writeHead(500, {'content-type': 'text/html'});
@@ -53,6 +53,26 @@ const handleGame = (request, response, endpoint) => {
     });
 
 }
+const handleGame = (request, response, endpoint) => {
+    // console.log(request.body);
+    const filePath = path.join(__dirname, '..', 'public', 'index.html');
+        fs.readFile(filePath, (err, file) => {
+            if (err) {
+                response.writeHead(500, {'content-type': 'text/html'});
+                response.end('<h1>We have an internal server error on our side!</h1>');
+            }
+            else {
+                response.writeHead(200, 
+                    {'content-type': 'text/html'}
+                    );
+                response.end(file);
+                // console.log(file);
+            }
+    })
+    
+    
+    };
+
 
     // const payload = {
     //     userName: 'buya786',
@@ -155,11 +175,12 @@ resultsQuery.resultDead((err,res) => {
 
 module.exports = {
     handleHome,
+    handleGame,
+    handleLogin,
     handlePublic,
     handleSelect,
     handleTable,
     handleA,
     handleD,
-    handleGame,
     handleLogout
 }
