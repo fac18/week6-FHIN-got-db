@@ -51,17 +51,17 @@ const populateInventoryTable = tableData => {
 
 //submit button
 let submitSelectionButton = document.querySelector("#submit-char")
-const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
 submitSelectionButton.addEventListener("click", function() {
-
-    if("number checked " + checkedBoxes.length !==3) {
-        alert("Please select 3 people to join your clan")
-    } else {
-        alert(checkedBoxes.each(function() {
-            alert(checkedBoxes.id);
-        }));
-    };
-});
+    const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    console.log(checkedBoxes.id);
+    // if("number checked " + checkedBoxes.length !==3) {
+    //     alert("Please select 3 people to join your clan")
+    // } else {
+    //     alert(checkedBoxes.each(function() {
+    //         alert(checkedBoxes.id);
+    //     }));
+    }
+);
 
 
 
