@@ -76,6 +76,7 @@ const handleLogin = (request, response, endpoint) => {
 }
 const handleGame = (request, response, endpoint) => {
     // console.log(request.body);
+    if(request.headers.cookie) {
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
         fs.readFile(filePath, (err, file) => {
             if (err) {
@@ -89,9 +90,19 @@ const handleGame = (request, response, endpoint) => {
                 response.end(file);
                 // console.log(file);
             }
+    
     })
     
-    
+}
+else {
+    response.writeHead(
+      401,
+      {
+          'Content-Type': 'text/html'
+      }
+    ); 
+    return response.end(console.log("you don't belong here"));
+  }
     };
 
 
