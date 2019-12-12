@@ -37,8 +37,8 @@ const handleLogin = (request, response, endpoint) => {
         // console.log({parsedData});
         let userName = parsedData.username;
         let passWord = parsedData.password;
-        console.log('This is userdata', userName, passWord); 
-        console.log(parsedData);
+        // console.log('This is userdata', userName, passWord); 
+        // console.log(parsedData);
 
         const payload = {
             user: userName,
@@ -62,11 +62,10 @@ const handleLogin = (request, response, endpoint) => {
                 response.writeHead(302, 
                     {'content-type': 'text/html',
                     'Location': '/game',
-                    'Set-Cookie': `data=${tokenRes}; HttpOnly; Max-Age=9999`
+                    'Set-Cookie': `${userName}=${tokenRes}; Max-Age=9999`
                 }
                     );
                 response.end(file);
-                // console.log(file);
             }
     })
     
