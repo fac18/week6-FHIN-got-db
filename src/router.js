@@ -8,6 +8,8 @@ const router = (request, response) => {
 
     } else if (endpoint.startsWith("/public")) {handlers.handlePublic(request, response, endpoint)
     } 
+    else if (endpoint.startsWith("/login")) {handlers.handleLogin(request, response, endpoint);
+    }
     else if (endpoint.startsWith("/game")) {handlers.handleGame(request, response, endpoint);
     }
     //don't need logout endpoint as redirect to "/"
