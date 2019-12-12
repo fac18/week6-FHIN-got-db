@@ -7,6 +7,8 @@ const querystring = require('querystring')
 //const { readFIle } = require('fs');
 // const cookie = require('cookie');
 const jwt = require ('jsonwebtoken');
+const env = require('dotenv').config()
+const secret = process.env.SECRET
 
 const handleHome = (request, response) => {
     const filepath = path.join(__dirname, '..', 'public', 'landing.html');
@@ -33,7 +35,24 @@ const handleLogin = (request, response, endpoint) => {
     dataStreamer(request, data => {
         parsedData=querystring.parse(data);
         // console.log({parsedData});
+        let userName = parsedData.username;
+        let passWord = parsedData.password;
+        console.log('This is userdata', userName, passWord); 
         console.log(parsedData);
+
+        const payload = {
+            user: userName,
+            pass: passWord
+         };
+        
+        let tokenRes = '';
+        
+        jwt.sign(payload, secret, (err, result) => {
+            if (err) {console.log(err);}
+            else {tokenRes = result;
+            };
+        });
+
         fs.readFile(filePath, (err, file) => {
             if (err) {
                 response.writeHead(500, {'content-type': 'text/html'});
@@ -42,7 +61,9 @@ const handleLogin = (request, response, endpoint) => {
             else {
                 response.writeHead(302, 
                     {'content-type': 'text/html',
-                    'Location': '/game'}
+                    'Location': '/game',
+                    'Set-Cookie': `data=${tokenRes}; HttpOnly; Max-Age=9999`
+                }
                     );
                 response.end(file);
                 // console.log(file);
@@ -74,22 +95,7 @@ const handleGame = (request, response, endpoint) => {
     };
 
 
-    // const payload = {
-    //     userName: 'buya786',
-    //     password: 'arsenal123'
-    // };
-    
-    // const secret = 'ssshhhh'
-    
-    // let tokenRes = '';
-    
-    // jwt.sign(payload, secret, (err, result) => {
-    //     if (err) {console.log(err);}
-    //     else {tokenRes = result;
-    //     };
-    // });
-
-const handleLogout = (request, response, endpoint) => {
+   const handleLogout = (request, response, endpoint) => {
     const filepath = path.join(__dirname, '..', 'public', 'landing.html');
     fs.readFile(filePath, (err, file) => {
         if (err) {
