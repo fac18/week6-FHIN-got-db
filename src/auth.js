@@ -1,6 +1,6 @@
 'use strict'
 
-const bcrypt = require("bcrypt");
+/*const bcrypt = require("bcrypt");
 
 
 const hashedPassword = (password, callback) => {
@@ -33,4 +33,4 @@ if(err){
 module.exports = {
     hashedPassword,
     comparePasswords
-};
+};*/
