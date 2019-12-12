@@ -1,4 +1,13 @@
-'use strict'
+const dataStreamer = (request, cb) =>{
+let allTheData = "";
+request.on("data", chunk => {
+    allTheData+=chunk;
+});
+request.on("end", () => {
+    cb(allTheData)
+});
+}
+
 
 /*const bcrypt = require("bcrypt");
 
@@ -34,3 +43,7 @@ module.exports = {
     hashedPassword,
     comparePasswords
 };*/
+
+module.exports = {
+    dataStreamer
+}
