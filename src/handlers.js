@@ -48,8 +48,8 @@ const handleLogout = (request, response, endpoint) => {
             response.end('<h1>We have an internal sevrer error on our side!</h1>');
         }
         else {
-            res.writeHead(200, {'content-type': 'text/html'});
-            res.end(file);
+            response.writeHead(200, {'content-type': 'text/html'});
+            response.end(file);
         }
     });
 }
