@@ -8,7 +8,7 @@ const jwt = require ('jsonwebtoken');
 const env = require('dotenv').config()
 const secret = process.env.SECRET
 
-const notAuthorisedPage = '<p style="font-size: 10vh; text-align: center;">What do we say to those that are unauthorised? </br> </br> Not Today. </p>'
+const notAuthorisedPage = '<p style="font-size: 10vh; text-align: center;">What do we say to those that are unauthorised? </br> </br> Not Today. </br></br><img src ="https://media.giphy.com/media/9RKLlD2oz5c7m/giphy.gif"></p>'
 
 const handleHome = (request, response) => {
     if (request.headers.cookie) {
