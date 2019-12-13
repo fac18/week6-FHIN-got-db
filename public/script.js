@@ -85,6 +85,6 @@ submitSelectionButton.addEventListener("click", function() {
 //display username on game page
 const displayName = document.querySelector('.username > p');
 let gamer = decodeURI(document.cookie).split("=")[0];
-displayName.textContent = gamer;
+displayName.textContent = `Greetings ${gamer}`;
 
 window.onload = showTable();

@@ -8,7 +8,11 @@
 
 
 ## User Stories
-- 
+1. As a user I want to be able to visit the page without loggin-in.
+2. As a user I want to be able to log-in and see user info.
+3. As a user I want to be able to log-in and manipulate the table of characters.
+4. As a user I want to know that my user infor is secure.
+5. As a user I want to be able to log-out.
 
 ## Requirements
 
@@ -20,6 +24,8 @@
 - Website content should be stored in a database
 - Include thorough tests on the back-end, testing pure functions and testing routes using Supertest. If you make external API calls, use Nock to mock the response for your tests.
 - Test front-end logic, we don't expect tests on the DOM.
+
+![Wire framing](https://i.imgur.com/bpEcM2s.jpg)
 
 ## None of the Stretch Goals were done
 
