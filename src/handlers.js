@@ -57,7 +57,7 @@ const handleLogin = (request, response, endpoint) => {
         response.writeHead(302, 
             {'content-type': 'text/html',
             'Location': '/game',
-            'Set-Cookie': `${userName}=${tokenRes}; Max-Age=9999`
+            'Set-Cookie': `${userName}=${tokenRes}; SameSite=Strict; Max-Age=9999`
             }
             );
         response.end();
