@@ -1,3 +1,59 @@
+# week6-week7-FHIN-got-db-auth
+
+## Installation Guide
+- clone repo
+- npm i
+- request .env and config.env from team and add to root of folder
+- nmp start and see site up and running on localhost:4444
+
+
+## User Stories
+1. As a user I want to be able to visit the page without loggin-in.
+2. As a user I want to be able to log-in and see user info.
+3. As a user I want to be able to log-in and manipulate the table of characters.
+4. As a user I want to know that my user infor is secure.
+5. As a user I want to be able to log-out.
+
+## Requirements
+
+- Login form with 2 fields - username and password
+- Users only have to log in once (i.e. implement a cookie-based session on login)
+- Username is visible on each page of the site after logging in
+- Any user-submitted content should be labelled with the authors username
+- There should be protected routes and unprotected routes that depend on the user having a cookie or not (or what level of access they have).
+- Website content should be stored in a database
+- Include thorough tests on the back-end, testing pure functions and testing routes using Supertest. If you make external API calls, use Nock to mock the response for your tests.
+- Test front-end logic, we don't expect tests on the DOM.
+
+![Wire framing](https://i.imgur.com/bpEcM2s.jpg)
+
+## None of the Stretch Goals were done
+
+To maximise time in fulfiling the requirements (as part of our SGC from last week)
+
+### Login form with 2 fields - username and password
+
+### Users only have to log in once (i.e. implement a cookie-based session on login)
+
+### Username is visible on each page of the site after logging in
+
+### Any user-submitted content should be labelled with the authors username
+
+### There should be protected routes and unprotected routes that depend on the user having a cookie or not (or what level of access they have).
+
+### Website content should be stored in a database
+
+### Include thorough tests on the back-end, testing pure functions and testing routes using Supertest. If you make external API calls, use Nock to mock the response for your tests.
+
+### Test front-end logic, we don't expect tests on the DOM.
+
+## Issues Tackled
+
+## Moving Forward
+
+
+---
+
 # week6-FHIN-got-db
 A Game of Thrones team builder
 
