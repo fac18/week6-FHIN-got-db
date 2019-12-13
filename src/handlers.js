@@ -8,6 +8,8 @@ const jwt = require ('jsonwebtoken');
 const env = require('dotenv').config()
 const secret = process.env.SECRET
 
+const notAuthorisedPage = '<p style="font-size: 10vh; text-align: center;">What do we say to those that are unauthorised? </br> </br> Not Today. </p>'
+
 const handleHome = (request, response) => {
     if (request.headers.cookie) {
         response.writeHead(302, 
@@ -88,7 +90,7 @@ else {
           'Content-Type': 'text/html'
       }
     ); 
-    return response.end(console.log("you don't belong here"));
+    return response.end(notAuthorisedPage);
   }
     };
 
@@ -126,7 +128,18 @@ const handlePublic = (request, response) => {
 }
 
 const handleTable = (request, response) => {
-    getData((err, res) => {
+    getData.getData((err, res) => {
+      if (err) console.log(err);
+      else {
+        const data = JSON.stringify(res);
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.end(data);
+      }
+    });
+  };
+
+const handleHonour = (request, response) => {
+    getData.getHonour((err, res) => {
       if (err) console.log(err);
       else {
         const data = JSON.stringify(res);
@@ -179,5 +192,6 @@ module.exports = {
     handleTable,
     handleA,
     handleD,
-    handleLogout
+    handleLogout,
+    handleHonour
 }

@@ -46,14 +46,40 @@ const populateInventoryTable = tableData => {
     })
 }
 
+// send selected characters to back-end and receive sum of honour points back
+let xhr = new XMLHttpRequest();
+    const url = "/honour";
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+        let honourInfo = JSON.parse(xhr.responseText);
+        console.log(honourInfo)
+        }
+    }
+    xhr.open("GET", url, true);
+    xhr.send();
+
 //submit button
 let submitSelectionButton = document.querySelector("#submit-char")
 submitSelectionButton.addEventListener("click", function() {
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    console.log(checkedBoxes);
+    const arrayCheckedBoxes = Array.from(checkedBoxes)
+    let infoArray = `id = '${arrayCheckedBoxes[0].defaultValue}' OR id = '${arrayCheckedBoxes[1].defaultValue}' OR id = '${arrayCheckedBoxes[2].defaultValue}'`
+    console.log(infoArray);
     if(checkedBoxes.length !==3) {
         alert("Please select 3 people to join your clan")
-    }}
+    } else {
+    let xhr = new XMLHttpRequest();
+    const url = "/honour";
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+        let honourInfo = JSON.parse(xhr.responseText);
+            console.log(honourInfo)
+        }
+    }
+    xhr.open("GET", url, true);
+    xhr.send();
+    }
+    }
 );
 
 //display username on game page
