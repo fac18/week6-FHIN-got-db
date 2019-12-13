@@ -8,7 +8,11 @@
 
 
 ## User Stories
-- 
+1. As a user I want to be able to visit the page without loggin-in.
+2. As a user I want to be able to log-in and see user info.
+3. As a user I want to be able to log-in and manipulate the table of characters.
+4. As a user I want to know that my user infor is secure.
+5. As a user I want to be able to log-out.
 
 ## Requirements
 
