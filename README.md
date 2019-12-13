@@ -25,6 +25,8 @@
 - Include thorough tests on the back-end, testing pure functions and testing routes using Supertest. If you make external API calls, use Nock to mock the response for your tests.
 - Test front-end logic, we don't expect tests on the DOM.
 
+![Wire framing](https://i.imgur.com/bpEcM2s.jpg)
+
 ## None of the Stretch Goals were done
 
 To maximise time in fulfiling the requirements (as part of our SGC from last week)
