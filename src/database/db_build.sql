@@ -28,7 +28,7 @@ CREATE TABLE status (
 
 
 
-INSERT INTO status(mortality, result) VALUES 
+'INSERT INTO status(mortality, result) VALUES ($1, $2)', 
 ('dead','The night is dark and full of terrors.Lights out for you'),
 ('dead','Sorry, you were brutally slain by a direwolf'),
 ('dead','A Faceless Man was no friend of yours. Sorry, you’re dead now'),
@@ -43,7 +43,7 @@ INSERT INTO status(mortality, result) VALUES
 
 
 
-INSERT INTO characters(name,house,weapon,honour) VALUES
+'INSERT INTO characters(name,house,weapon,honour) VALUES ($1, $2, $3, $4)',
 ('Jon Snow', 'House Stark','broad sword', 100),
 ('Daenerys Targaryen','House Targaryen','dragons' ,140),
 ('Ice King', 'No Allegiance','army of the dead', 230),
