@@ -19,6 +19,8 @@ const router = (request, response) => {
     } 
     else if (endpoint.startsWith("/table")) { handlers.handleTable (request, response);
     } 
+    else if (endpoint.startsWith("/honour")) {handlers.handleHonour (request, response);}
+     
     else if (endpoint.startsWith("/resultsA")) {handlers.handleA (request, response)
     } 
     else if (endpoint.startsWith("/resultsD")) {handlers.handleD (request, response) 
