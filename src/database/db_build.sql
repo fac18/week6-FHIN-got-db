@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP IF EXISTS characters, status CASCADE;
+DROP TABLE IF EXISTS characters, status CASCADE;
 
 CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
