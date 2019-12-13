@@ -53,9 +53,8 @@ submitSelectionButton.addEventListener("click", function() {
     console.log(checkedBoxes);
     if(checkedBoxes.length !==3) {
         alert("Please select 3 people to join your clan")
-    } else {
-        console.log("you're good");
-    }; } )
+    }}
+);
 
 //display username on game page
 const displayName = document.querySelector('.username > p');
