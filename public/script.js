@@ -5,13 +5,11 @@ const showTable = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
         let tableData = JSON.parse(xhr.responseText);
          populateInventoryTable(tableData)
-          console.log(tableData);
         }
     }
     xhr.open("GET", url, true);
     xhr.send();
 };
-
 
 const populateInventoryTable = tableData => {
     const tableBody = document.querySelector(".characters_table tbody");
@@ -48,26 +46,23 @@ const populateInventoryTable = tableData => {
     })
 }
 
-
 //submit button
 let submitSelectionButton = document.querySelector("#submit-char")
 submitSelectionButton.addEventListener("click", function() {
     const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
     console.log(checkedBoxes.id);
-    // if("number checked " + checkedBoxes.length !==3) {
-    //     alert("Please select 3 people to join your clan")
-    // } else {
-    //     alert(checkedBoxes.each(function() {
-    //         alert(checkedBoxes.id);
-    //     }));
-    }
+    if("number checked " + checkedBoxes.length !==3) {
+        alert("Please select 3 people to join your clan")
+    } else {
+        alert(checkedBoxes.each(function() {
+            alert(checkedBoxes.id);
+        }));
+    }}
 );
 
 //display username on game page
 const displayName = document.querySelector('.username > p');
 let gamer = decodeURI(document.cookie).split("=")[0];
 displayName.textContent = gamer;
-
-
 
 window.onload = showTable();

@@ -4,13 +4,22 @@ const getData = require('./queries/getData.js');
 const resultsQuery = require('./queries/resultsQuery.js');
 const {dataStreamer} = require('./auth')
 const querystring = require('querystring')
-//const { readFIle } = require('fs');
-// const cookie = require('cookie');
 const jwt = require ('jsonwebtoken');
 const env = require('dotenv').config()
 const secret = process.env.SECRET
 
 const handleHome = (request, response) => {
+    if (request.headers.cookie) {
+        response.writeHead(302, 
+            {'content-type': 'text/html',
+            'Location': '/game',
+            }
+            );
+        response.end();
+
+    }
+
+    else {
     const filepath = path.join(__dirname, '..', 'public', 'landing.html');
 
     fs.readFile(filepath, (error, file) => {
@@ -27,54 +36,36 @@ const handleHome = (request, response) => {
             response.end(file);
         }
     });
-};
+}
+}
 
 const handleLogin = (request, response, endpoint) => {
-    // console.log(request.body);
-    const filePath = path.join(__dirname, '..', 'public', 'index.html');
     dataStreamer(request, data => {
         parsedData=querystring.parse(data);
-        // console.log({parsedData});
         let userName = parsedData.username;
         let passWord = parsedData.password;
-        // console.log('This is userdata', userName, passWord); 
-        // console.log(parsedData);
-
         const payload = {
             user: userName,
             pass: passWord
          };
-        
-        let tokenRes = '';
-        
+        let tokenRes = ''; 
         jwt.sign(payload, secret, (err, result) => {
             if (err) {console.log(err);}
             else {tokenRes = result;
             };
         });
-
-        fs.readFile(filePath, (err, file) => {
-            if (err) {
-                response.writeHead(500, {'content-type': 'text/html'});
-                response.end('<h1>We have an internal server error on our side!</h1>');
+        response.writeHead(302, 
+            {'content-type': 'text/html',
+            'Location': '/game',
+            'Set-Cookie': `${userName}=${tokenRes}; Max-Age=9999`
             }
-            else {
-                response.writeHead(302, 
-                    {'content-type': 'text/html',
-                    'Location': '/game',
-                    'Set-Cookie': `${userName}=${tokenRes}; Max-Age=9999`
-                }
-                    );
-                response.end(file);
-            }
+            );
+        response.end();
+            
     })
-    
-    
-    });
-
 }
+
 const handleGame = (request, response, endpoint) => {
-    // console.log(request.body);
     if(request.headers.cookie) {
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
         fs.readFile(filePath, (err, file) => {
@@ -87,11 +78,8 @@ const handleGame = (request, response, endpoint) => {
                     {'content-type': 'text/html'}
                     );
                 response.end(file);
-                // console.log(file);
             }
-    
     })
-    
 }
 else {
     response.writeHead(
@@ -104,21 +92,14 @@ else {
   }
     };
 
-
    const handleLogout = (request, response, endpoint) => {
-    const filepath = path.join(__dirname, '..', 'public', 'landing.html');
-    fs.readFile(filePath, (err, file) => {
-        if (err) {
-            response.writeHead(500, {'content-type': 'text/html'});
-            response.end('<h1>We have an internal sevrer error on our side!</h1>');
-        }
-        else {
-            response.writeHead(200, {'content-type': 'text/html'});
-            response.end(file);
-        }
-    });
-}
-
+       let userName = request.headers.cookie.split('=')[0]
+            response.writeHead(302, {'content-type': 'text/html',
+            'Location': '/',
+            'Set-Cookie': `${userName}=0; Max-Age=0`});
+            response.end();
+   }
+        
 const handlePublic = (request, response) => {
     const endpoint = request.url;
     const extension = endpoint.split('.')[1];
