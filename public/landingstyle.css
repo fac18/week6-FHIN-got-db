@@ -1,0 +1,164 @@
+:root {
+    /* colour variables */ 
+    --fire: rgb(54, 39, 15);
+    --ice: #c0def7;
+    --direwolf: #64635b;
+    /* --winterfell: #c97c19; */
+    --whiteout: white;
+    /* spacing variables: golden ratio */
+    --space-xs: 0.382rem;
+    --space-s: 0.618rem;
+    --space-m: 1rem;
+    --space-l: 1.618rem;
+    --space-xl: 2.618rem;
+    --space-xxl: 4.236rem;
+    /* Fonts  */
+    --cinzel: 'Cinzel', serif;
+    --roboto: 'Roboto', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    width: 100vw;
+    background: url("assets/kings-landing.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    margin: var(--space-l);
+    display: flex;
+    flex-direction: column;
+    line-height: var(--space-m);
+    font-family: var(--cinzel);
+    text-align: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+h1, p, h2 {
+    text-align: center;
+    padding: var(--space-m);
+    line-height: var(--space-l);
+}
+h1 {
+    display: block;
+    font-size: var(--space-xl);
+    line-height: var(--space-xl);
+    color: var(--fire);
+}
+
+form {
+    line-height: var(--space-l);
+    font-family: var(--wsans);
+    font-size: var(--space-m);
+    display: flex;
+    flex-direction:column;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.315);
+    border-radius: 12px;
+}
+
+input {
+    font-family: var(--roboto);
+    padding: 0.5em 0.5em;
+    font-size: 0.8em;
+    margin: 1em;
+    border-radius: 16px;
+    border-style: none;
+}
+
+.input-title {
+    padding: 0.5em;
+    display:flex;
+    justify-content: flex-start;
+    color: var(--whiteout);
+}
+
+.input-field {
+    padding-bottom: 1em;
+}
+
+input::placeholder {
+    color: var(--glass);
+}
+
+button {
+    height: var(--space-xl);
+    border-radius: 16px;
+    /* margin-right: var(--space-m); */
+    background-color: var(--fire);
+    color: var(--whiteout);
+    border: 2px solid var(--whiteout);
+    outline: none;
+    padding: 0em 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1em;
+    margin-top: 2em;
+} 
+
+button:hover {
+    color: var(--whiteout);
+    background-color: var(--fire);
+    border: 2px solid var(--mystic);
+} */
+
+
+.svg {
+    padding: var(--space-xl);
+    display: flex;
+}
+
+
+  
+
+/* media queries */
+@media (min-width: 768px) {
+
+    html {
+        width: 100vw;
+    }
+
+    body {
+        justify-content: center;
+    }
+
+    h1 {
+        padding: var(--space-l);
+        font-size: var(--space-xxl);
+    }
+
+    h2 {
+        margin: var(--space-l);
+        /* background-color: #c0def77a; */
+        display: inline-block;
+        color: var(--fire)
+        
+    }
+
+    p {
+        font-size: var(--space-l);
+
+    }
+
+    form {
+        padding-top: var(--space-xl);
+        width: 40vw;
+        align-self: center;
+    }
+
+}
+
+   
+
+

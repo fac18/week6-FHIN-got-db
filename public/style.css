@@ -1,6 +1,6 @@
 :root {
     /* colour variables */ 
-    --fire: rgb(226, 138, 6);
+    --fire: #E49603;
     --ice: #c0def7;
     --direwolf: #64635b;
     --winterfell: #2e2d42;
@@ -74,42 +74,63 @@ form {
     display: flex;
     flex-flow: row nowrap;
 }
+
 input::placeholder {
     color: var(--glass);
 }
 
+.logout-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.username, .logout-button {
+    display: inline;
+}
+
 .username {
+    background-color: #c0def7;
+    margin: 0.5em;
+    padding: 0em 0em;
+    border-radius: 16px;
+}
+
+
+.username > p{
+    font-size: var(--space-m);
+}
+
+button {
     padding-left: var(--space-s);
-    width: 70vw;
+    /* width: 70vw; */
     height: var(--space-xl);
     border-radius: 16px;
     margin-right: var(--space-m);
-    background-color: var(--ice);
-    color: var(--mystic);
+    background-color: var(--fire);
+    color: var(--winterfell);
     border: 2px solid var(--winterfell);
     outline: none;
-}
-button {
-    font-size: var(--space-l);
-    border-radius: 16px;
-    height: var(--space-xl);
-    color: var(--glass);
-    border: 2px solid var(--glass);
-    background-color: var(--blueberry);
+    padding: 0em 1em;
+    font-weight: bold;
     cursor: pointer;
-    outline: none;
-    display: flex;
-    flex-flow: column;
-}
-button:hover {
-    color: var(--mystic);
-    border: 2px solid var(--mystic);
+} 
+
+.logout-button {
+    background-color: var(--ice);
 }
 
+button:hover {
+    background-color: var(--fire);
+} 
 
 .svg {
     padding: var(--space-xl);
     display: flex;
+}
+
+#submit-char {
+    width: 70vw;
 }
 
 /* table */
@@ -197,7 +218,11 @@ tr:checked {
         width: 20vw;
     }
 
-    
+    table {
+        display: table;
+        width: 80vw;
+        align-self: center;
+    }
 
 }
 
