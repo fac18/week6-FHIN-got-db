@@ -23,6 +23,7 @@ const populateInventoryTable = tableData => {
         checkbox.type = 'checkbox';
         checkbox.name = checkbox;
         checkbox.value = character.id;
+        checkbox.setAttribute("aria-label", "checkbox");
         newCheckbox.appendChild(checkbox)
         newCharacterRow.appendChild(newCheckbox)
 
