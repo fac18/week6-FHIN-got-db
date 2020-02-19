@@ -3,7 +3,7 @@
 ## Installation Guide
 - clone repo
 - npm i
-- request .env and config.env from team and add to root of folder
+- add .env(SECRET=ahifusnf7jrs343) and config.env(DB_URL=postgres://sjbyaxhqxajulr:624aca55754a83fc5fe748e36c3d9e2a3eff2c2c3507e9bba3c596c991d0be20@ec2-54-247-82-14.eu-west-1.compute.amazonaws.com:5432/ddkg2afd14oh46 ) to root of folder 
 - nmp start and see site up and running on localhost:4444
 
 
